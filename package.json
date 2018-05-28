@@ -1,0 +1,24 @@
+{
+  "name": "pacman",
+  "version": "0.0.0",
+  "description": "PacMan implementation using Typscript and Eletron",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json -p tsconfig.json",
+    "start": "npm run build && electron ./dist/main.js"
+  },
+  "repository": "https://github.com/douglaszporto/pacman",
+  "keywords": [
+    "Pacman",
+    "Gamedev",
+    "no-framework"
+  ],
+  "author": "Douglas Zanotta <douglas.z.porto@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^2.0.1",
+    "tslint": "^5.9.1",
+    "typescript": "^2.6.2"
+  }
+}
