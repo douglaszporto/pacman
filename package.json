@@ -1,7 +1,7 @@
 {
-  "name": "pacman",
+  "name": "herorumble",
   "version": "0.0.0",
-  "description": "PacMan implementation using Typscript and Eletron",
+  "description": "A game implementation using Electron",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
@@ -10,7 +10,6 @@
   },
   "repository": "https://github.com/douglaszporto/pacman",
   "keywords": [
-    "Pacman",
     "Gamedev",
     "no-framework"
   ],

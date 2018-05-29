@@ -3,10 +3,14 @@
   "rules": {
     "max-line-length": {
       "options": [
-        120
+        160
       ]
     },
+    "quotemark": false,
     "new-parens": true,
+    "ordered-imports": false,
+    "object-literal-sort-keys" : false,
+    "no-console": false,
     "no-arg": true,
     "no-bitwise": true,
     "no-conditional-assignment": true,

@@ -9,6 +9,7 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 768,
     width: 1366,
+    useContentSize: true,
   });
 
   // and load the index.html of the app.
@@ -19,7 +20,7 @@ function createWindow() {
   }));
 
   // Open the DevTools.
-  //mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on("closed", () => {
