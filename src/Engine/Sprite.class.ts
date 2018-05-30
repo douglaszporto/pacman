@@ -26,8 +26,8 @@ export default class Sprite {
             this.img.height,
             (x - this.originX) - camera.x,
             (y - this.originY) - camera.y,
-            this.height,
             this.width,
+            this.height,
         );
     }
 

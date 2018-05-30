@@ -9,6 +9,8 @@ export default class ObjectElement {
     public x: number;
     public y: number;
     public animation: any;
+    public variables: any;
+    public updateCallback: (gameState: Game, self: ObjectElement) => void;
 
     private keyEventsQueue: any;
     private keyEventsReleaseQueue: any;
@@ -18,7 +20,7 @@ export default class ObjectElement {
         public sprite: Sprite,
     ) {
         this.animation = {
-            name: Object.keys((this.sprite as SpriteSet).animations)[0] || null,
+            name: typeof (this.sprite as SpriteSet).animations !== 'undefined' ? Object.keys((this.sprite as SpriteSet).animations)[0] : null,
             frame: 0,
             speed: 30,
             counter: 0,
@@ -28,6 +30,12 @@ export default class ObjectElement {
         this.keyEventsQueue = [];
         this.keyEventsReleaseQueue = [];
         this.keyEventsPressQueue = [];
+
+        this.variables = {};
+
+        this.updateCallback = (gameState: Game, self: ObjectElement) => {
+            return;
+        };
     }
 
     public onKeyPress(keyValue: number, callback: () => void) {
@@ -75,8 +83,8 @@ export default class ObjectElement {
         context.strokeRect(
             (this.x - this.sprite.originX) - camera.x,
             (this.y - this.sprite.originY) - camera.y,
-            this.sprite.height,
             this.sprite.width,
+            this.sprite.height,
         );
 
         return;
@@ -100,5 +108,9 @@ export default class ObjectElement {
                 keyEvent.callback();
             }
         });
+
+        if (this.updateCallback !== null) {
+            this.updateCallback(gameState, this);
+        }
     }
 }
